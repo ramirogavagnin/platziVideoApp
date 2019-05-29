@@ -1,10 +1,12 @@
 import React from 'react'
-import { FlatList, Text, ListItem, View } from 'react-native'
+import { FlatList, Text, View } from 'react-native'
+import EmptyList from '../components/EmptyList'
 
 export default class SuggestionList extends React.Component {
+    renderEmptyList = () => <EmptyList text={'No hay sugerencias por el momento'} />
     render() {
         const list = [
-            {
+            /* {
                 id: '2de30c42-9deb-40fc-a41f-05e62b5939a7',
                 firstName: 'Freda',
                 lastName: 'Grady',
@@ -53,10 +55,15 @@ export default class SuggestionList extends React.Component {
                 twitter: 'MaudeEffertz73114',
                 avatarUrl:
                     'https://www.gravatar.com/avatar/01d0de92ec9ca4fdfbb99edf6a1abfea?d=identicon',
-            },
+            }, */
         ]
         return (
-            <FlatList data={list} renderItem={({ item }) => <ListItem title={item.firstName} />} />
+            <FlatList
+                data={list}
+                renderItem={({ item }) => <Text>{item.firstName}</Text>}
+                keyExtractor={(item, index) => item.id}
+                ListEmptyComponent={this.renderEmptyList}
+            />
         )
     }
 }

@@ -17,6 +17,7 @@ export default class App extends React.Component<Props> {
                 </Header>
                 <Text>Buscador</Text>
                 <Text>Categorias</Text>
+                <SuggestionList />
             </Home>
         )
     }
