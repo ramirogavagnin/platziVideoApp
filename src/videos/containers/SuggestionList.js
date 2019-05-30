@@ -8,7 +8,16 @@ export default class SuggestionList extends React.Component {
 
     renderItem = ({ item, index }) => {
         if (item.empty === true) {
-            return <View style={[styles.item, styles.itemInvisible]} />
+            return (
+                <CardView
+                    style={styles.item}
+                    cardElevation={4}
+                    cardMaxElevation={4}
+                    cornerRadius={10}
+                >
+                    <Text style={styles.itemText}>More Info + </Text>
+                </CardView>
+            )
         }
         return (
             <CardView style={styles.item} cardElevation={4} cardMaxElevation={4} cornerRadius={10}>
