@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, Text, View, StyleSheet, Dimensions } from 'react-native'
 import EmptyList from '../components/EmptyList'
 import CardView from 'react-native-cardview'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 export default class SuggestionList extends React.Component {
     /* renderEmptyList = () => <EmptyList text={'No hay sugerencias por el momento'} /> */
@@ -15,12 +16,14 @@ export default class SuggestionList extends React.Component {
                     cardMaxElevation={4}
                     cornerRadius={10}
                 >
-                    <Text style={styles.itemText}>More Info + </Text>
+                    <Icon name="plus" size={40} color="#fff" />
+                    <Text style={styles.itemText}>Ver mas</Text>
                 </CardView>
             )
         }
         return (
             <CardView style={styles.item} cardElevation={4} cardMaxElevation={4} cornerRadius={10}>
+                <Icon name="heart" size={40} color="#fff" />
                 <Text style={styles.itemText}>{item.firstName}</Text>
             </CardView>
         )
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
         color: '#fff',
+        fontSize: 20,
     },
 })
 
